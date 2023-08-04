@@ -3,20 +3,8 @@ import {env} from "@/env.mjs";
 
 const baseUrl = env.NEXT_PUBLIC_AUTH_BASE_URL;
 
-export const phoneLogin = (phone: string) => {
-  return fetch(baseUrl + "/api/auth/signin", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      phone: phone,
-    }),
-  });
-};
-
-export const phoneSignUp = (phone: string) => {
-  return fetch(baseUrl + "/api/auth/signup/phone", {
+export const phoneSignIn = (phone: string) => {
+  return fetch(baseUrl + "/api/auth/signin/phone", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,20 +16,20 @@ export const phoneSignUp = (phone: string) => {
 };
 
 export const verifyOtp = (phone: string, token: string) => {
-  return fetch("/api/auth/code", {
+  return fetch(baseUrl + "/api/auth/verify/code", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       phone,
-      token,
+      code: token,
     }),
   });
 };
 
 export const resendOtp = (phone: string) => {
-  return fetch("/api/auth/resend", {
+  return fetch(baseUrl + "/api/auth/resend", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

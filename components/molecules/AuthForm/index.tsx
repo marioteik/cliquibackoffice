@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {phoneLogin, phoneSignUp, resendOtp, verifyOtp} from "@/services/auth";
+import {phoneSignIn, resendOtp, verifyOtp} from "@/services/auth";
 import ReactCountryFlag from "react-country-flag";
 import { useForm } from "react-hook-form";
 
@@ -43,7 +43,7 @@ export function AuthForm({ className, ...props }: UserAuthFormProps) {
   async function onSubmit(data: LoginProps) {
     setIsLoading(true);
 
-    const response = await phoneSignUp("+55" + data.phone);
+    const response = await phoneSignIn("+55" + data.phone);
 
     setIsLoading(false);
 
