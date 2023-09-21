@@ -25,11 +25,11 @@ export const config = {
   matcher: [
     /*
      * Matches all request paths except for the ones starting with:
-     * - /api/auth (AUTH routes)
+     * - /web/auth (AUTH routes)
      * - /login & /signup
      * - _next/static (static files)
      * - favicon.ico (favicon file)
      */
-    "/((?!api/auth|login|signup|_next/static|favicon).*)",
+    "/((?!web/auth|login|signup|_next/static|favicon).*)",
   ],
 };
